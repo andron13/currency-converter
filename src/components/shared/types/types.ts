@@ -1,19 +1,14 @@
-enum CurrencyEnum {
-  EUR = "EUR", // Евро
-  USD = "USD", // Доллар США
-  PLN = "PLN", // Polish Złoty
-  GBP = "GBP", // British Pound,
-}
+export type Currency = {
+  code: string,
+  rate: number,
+  picture: string
+};
 
-const flagImages = {
-  USD: "путь_к_изображению_USD.png",
-  EUR: "путь_к_изображению_EUR.png",
-  BYN: "путь_к_изображению_BYN.png",
-  UAH: "путь_к_изображению_UAH.png",
-  RUB: "путь_к_изображению_RUB.png",
-  GEL: "путь_к_изображению_GEL.png",
-  AMD: "путь_к_изображению_AMD.png",
-  CNY: "путь_к_изображению_CNY.png",
+export const CURRENCIES: { [code: string]: Currency } = {
+  EUR: {code: 'EUR', rate: 1, picture: "путь_к_изображению_EUR.png"},       // Евро
+  USD: {code: 'USD', rate: 0, picture: "путь_к_изображению_USD.png"},       // Доллар США
+  PLN: {code: 'PLN', rate: 0, picture: "путь_к_изображению_PLN.png"},       // Polish Złoty
+  GBP: {code: 'GBP', rate: 0, picture: "путь_к_изображению_GBP.png"},       // British Pound
 };
 
 /*
@@ -65,5 +60,3 @@ const flagImages = {
 //   USD: "United States Dollar",
 //   ZAR: "South African Rand"
 // }
-
-export default CurrencyEnum;
