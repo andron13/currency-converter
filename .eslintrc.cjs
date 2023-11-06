@@ -25,6 +25,7 @@ module.exports = {
   },
   rules: {
     "@typescript-eslint/no-unused-vars": "warn",
+    "no-console": "warn",
     'prefer-arrow-callback': 0,
     'jsx-a11y/click-events-have-key-events': 0,
     'jsx-a11y/no-noninteractive-element-interactions': 0,

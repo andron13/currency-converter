@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 
 import fetchExchangeRate from "../services/fetchExchangeRate.ts";
 import CurrencyEnum from "../shared/types/enum.ts";
@@ -10,13 +10,14 @@ function Converter() {
   const [converted, setConverted] = useState<string>("");
 
   useEffect(() => {
+    const controller = new AbortController();
+
     if (fromCur === toCur) {
       setConverted(amount);
     } else {
-      fetchExchangeRate(fromCur, toCur, amount)
+      fetchExchangeRate(fromCur, toCur, amount, controller.signal)
         .then((result) => {
           if (typeof result === "string") {
-            console.log("result", result);
             setConverted(result);
           } else {
             console.error("Ошибка при получении курса обмена.");
@@ -26,7 +27,14 @@ function Converter() {
           console.error("Произошла ошибка при запросе: ", error);
         });
     }
+    return () => controller.abort()
   }, [amount, fromCur, toCur]);
+
+  const currencyCollection = Object.values(CurrencyEnum).map((currency) => (
+    <option key={currency} value={currency}>
+      {currency}
+    </option>
+  ))
 
   return (
     <section className="p-4 bg-white font-sans text-gray-700 text-base flex flex-col gap-6">
@@ -42,22 +50,14 @@ function Converter() {
           onChange={(e) => setFromCur(e.target.value as CurrencyEnum)}
           className="border border-gray-300 rounded p-2 text-lg"
         >
-          {Object.values(CurrencyEnum).map((currency) => (
-            <option key={currency} value={currency}>
-              {currency}
-            </option>
-          ))}
+          {currencyCollection}
         </select>
         <select
           value={toCur}
           onChange={(e) => setToCur(e.target.value as CurrencyEnum)}
           className="border border-gray-300 rounded p-2 text-lg"
         >
-          {Object.values(CurrencyEnum).map((currency) => (
-            <option key={currency} value={currency}>
-              {currency}
-            </option>
-          ))}
+          {currencyCollection}
         </select>
         <button
           type="button"
@@ -66,7 +66,7 @@ function Converter() {
           Convert
         </button>
       </form>
-      <hr />
+      <hr/>
       <p className="text-xl amount">
         <span>{`${amount} ${fromCur.toString()} = `}</span>
         <span className="font-bold">{`${converted} ${toCur.toString()}`}</span>
