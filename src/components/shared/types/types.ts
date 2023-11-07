@@ -1,14 +1,9 @@
 export type Currency = {
-  code: string;
+  acronym: string;
   rate: number;
-  picture: string;
-};
-
-export const CURRENCIES: { [code: string]: Currency } = {
-  EUR: { code: "EUR", rate: 1, picture: "путь_к_изображению_EUR.png" }, // Евро
-  USD: { code: "USD", rate: 0, picture: "путь_к_изображению_USD.png" }, // Доллар США
-  PLN: { code: "PLN", rate: 0, picture: "путь_к_изображению_PLN.png" }, // Polish Złoty
-  GBP: { code: "GBP", rate: 0, picture: "путь_к_изображению_GBP.png" }, // British Pound
+  country?: string;
+  currencyName?: string;
+  picture?: string;
 };
 
 /*

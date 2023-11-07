@@ -1,9 +1,9 @@
-import InputList from "../FormElements/InputLists.tsx";
+import InputList from "../FormElements/InputLists";
 
 function BlockConverter() {
   return (
     <div className="mx-10">
-      <form className="rounded-md bg-gray-200 ">
+      <form className="rounded-md bg-gray-200">
         <InputList />
       </form>
     </div>

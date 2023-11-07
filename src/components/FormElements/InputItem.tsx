@@ -28,7 +28,7 @@ const InputItem: FC<InputItemProps> = ({
   return (
     <div className="flex items-center justify-between space-x-3 p-3">
       <img src={iconSrc} alt="Иконка" className="w-6 h-6" />
-      <label htmlFor={inputId} className="text-gray-600 font-bold">
+      <label htmlFor={inputId} className="font-bold">
         {label}:
       </label>
       <label htmlFor={inputId} className="text-red-600 font-bold">

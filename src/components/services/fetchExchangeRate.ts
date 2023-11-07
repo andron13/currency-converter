@@ -22,7 +22,7 @@ async function fetchExchangeRate(
 ) {
   try {
     const res = await fetch(
-      `https://api.frankfurter.app/latest?amount=${amount}&from=${fromCurrency.code}&to=${toCurrency.code}`,
+      `https://api.frankfurter.app/latest?amount=${amount}&from=${fromCurrency.acronym}&to=${toCurrency.acronym}`,
       {
         signal: controller,
       },
@@ -33,7 +33,7 @@ async function fetchExchangeRate(
     }
     const data = await res.json();
     // console.log("data", data)
-    const converted = data.rates[toCurrency.code];
+    const converted = data.rates[toCurrency.acronym];
 
     return convertToEuropeanNumber(converted);
   } catch (error) {
