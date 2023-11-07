@@ -4,6 +4,7 @@ import byrIcon from "../../assets/flags/byr.png";
 
 interface InputItemProps {
   label?: string;
+  labelTwo?: string;
   iconSrc?: string;
   inputId?: string;
   inputClassName?: string;
@@ -12,11 +13,12 @@ interface InputItemProps {
 }
 
 const InputItem: FC<InputItemProps> = ({
-  label = "Default Label",
+  label = "USD",
+  labelTwo = "0.7306",
   iconSrc = byrIcon,
   inputId = "defaultInput",
-  inputClassName = "default-input-class",
-  value = "",
+  inputClassName = "w-1/2",
+  value = "3423423",
   onChange,
 }) => {
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -24,15 +26,18 @@ const InputItem: FC<InputItemProps> = ({
   };
 
   return (
-    <div className="input-field">
-      <label htmlFor={inputId} className="label">
+    <div className="flex items-center justify-between space-x-3 p-3">
+      <img src={iconSrc} alt="Иконка" className="w-6 h-6" />
+      <label htmlFor={inputId} className="text-gray-600 font-bold">
         {label}:
       </label>
-      <img src={iconSrc} alt="Иконка" className="icon" />
+      <label htmlFor={inputId} className="text-red-600 font-bold">
+        {labelTwo}:
+      </label>
       <input
         type="text"
         id={inputId}
-        className={inputClassName}
+        className={`ml-auto rounded-md border-2 border-gray-300 p-2 ${inputClassName}`}
         value={value}
         onChange={handleInputChange}
       />

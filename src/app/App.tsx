@@ -1,6 +1,6 @@
-import MainPage from "../components/MainPage.tsx";
-import ErrorBoundary from "../components/shared/ui/ErrorBoundary.tsx";
-import FallbackUi from "../components/shared/ui/FallbackUi.tsx";
+import MainPage from "../components/MainPage";
+import ErrorBoundary from "../components/shared/ui/ErrorBoundary";
+import FallbackUi from "../components/shared/ui/FallbackUi";
 
 function App() {
   return (
