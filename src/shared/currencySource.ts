@@ -1,7 +1,12 @@
-import cadIcon from "../assets/flags/cad.png";
+import bynIcon from "../assets/flags/byn.png";
+import cadIcon from "../assets/flags/cad.png"; //${acronym} => src={`src/assets/flags/${acronym.toLowerCase()}.png`}
+import cnyIcon from "../assets/flags/cny.png";
 import eurIcon from "../assets/flags/eur.png";
+import kztIcon from "../assets/flags/kzt.png";
 import plnIcon from "../assets/flags/pln.png";
-import usdIcon from "../assets/flags/usd.png"; //${acronym} => src={`src/assets/flags/${acronym.toLowerCase()}.png`}
+import rubIcon from "../assets/flags/rub.png";
+import uahIcon from "../assets/flags/uah.png";
+import usdIcon from "../assets/flags/usd.png";
 
 import { Currency } from "./types/types";
 
@@ -39,6 +44,41 @@ export const CURRENCIES: Currency[] = [
     rate: 0,
     country: "Belarus",
     currencyName: "Belarusian ruble",
-    picture: cadIcon,
+    picture: bynIcon,
+  },
+  {
+    acronym: "RUB",
+    rate: 0,
+    country: "Russia",
+    currencyName: "Russian Ruble",
+    picture: rubIcon,
+  },
+  {
+    acronym: "UAH",
+    rate: 0,
+    country: "Ukraine",
+    currencyName: "Ukrainian Hryvnia",
+    picture: uahIcon,
+  },
+  {
+    acronym: "CNY",
+    rate: 0,
+    country: "China",
+    currencyName: "Chinese Yuan",
+    picture: cnyIcon,
+  },
+  {
+    acronym: "KZT",
+    rate: 0,
+    country: "Kazakhstan",
+    currencyName: "Kazakhstani Tenge",
+    picture: kztIcon,
+  },
+  {
+    acronym: "AUD",
+    rate: 0,
+    country: "Australia",
+    currencyName: "Australian Dollar",
+    picture: "audIcon",
   },
 ];
