@@ -24,9 +24,9 @@ const InputItem: FC<InputItemProps> = ({
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     onChange(event.target.value);
   };
-
   return (
-    <div className="flex items-center justify-between space-x-3 p-3">
+    <fieldset className="flex items-center justify-between space-x-2 px-2 py-1 w-fit">
+      {/* w-96 80 72 64 fit*/}
       <img src={iconSrc} alt="Иконка" className="w-6 h-6" />
       <label htmlFor={inputId} className="font-bold">
         {label}:
@@ -37,11 +37,11 @@ const InputItem: FC<InputItemProps> = ({
       <input
         type="text"
         id={inputId}
-        className={`ml-auto rounded-md border-2 border-gray-300 p-2 ${inputClassName}`}
+        className={`ml-auto rounded-md border-2 border-gray-300 p-1 ${inputClassName}`}
         value={value}
         onChange={handleInputChange}
       />
-    </div>
+    </fieldset>
   );
 };
 

@@ -1,4 +1,4 @@
-import { Currency } from "../shared/types/types.ts";
+import { Currency } from "../../shared/types/types";
 
 function getErrorMessage(error: unknown) {
   if (error instanceof Error) return error.message;

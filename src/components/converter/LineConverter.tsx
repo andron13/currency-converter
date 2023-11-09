@@ -1,8 +1,8 @@
 import { ChangeEvent, useEffect, useState } from "react";
 
+import { CURRENCIES } from "../../shared/currencySource";
+import { Currency } from "../../shared/types/types";
 import fetchExchangeRate from "../services/fetchExchangeRate";
-import { CURRENCIES } from "../shared/currencySource";
-import { Currency } from "../shared/types/types";
 
 function LineConverter() {
   const [fromCur, setFromCur] = useState(CURRENCIES[0]);
