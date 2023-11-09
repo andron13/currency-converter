@@ -1,6 +1,6 @@
 export type Currency = {
   acronym: string;
-  rate: number;
+  rate: string | number | null;
   country?: string;
   currencyName?: string;
   picture?: string;
