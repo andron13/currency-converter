@@ -1,3 +1,5 @@
+// InputLists.tsx
+
 import { ChangeEvent, FC } from "react";
 
 interface InputItemProps {
@@ -15,7 +17,7 @@ const InputItem: FC<InputItemProps> = ({
   exchangeRate = null,
   iconSrc,
   inputClassName = "w-28",
-  value = "3423423",
+  value = "342423",
   onChange,
 }) => {
   const inputId = label;

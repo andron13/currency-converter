@@ -1,3 +1,5 @@
+// InputItem.tsx
+
 import { FC, useState, ChangeEvent } from "react";
 
 import { CURRENCIES } from "../../shared/currencySource";
@@ -8,18 +10,22 @@ const InputList: FC = () => {
   const [inputValue, setInputValue] = useState("");
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    console.log(event.target.value);
-    setInputValue(event.target.value);
+    const value = event.target.value;
+    if (/^[0-9]*[.,]?[0-9]*$/.test(value)) {
+      const output = value.replace(",", ".");
+      setInputValue(output);
+    }
   };
 
-  const firstCurrency = CURRENCIES[0]; // euro by default
+  const firstCurrency = CURRENCIES[0];
   const currencyCollection = CURRENCIES.slice(1, 9).map((cur) => (
     <InputItem
       label={cur.acronym}
-      exchangeRate={0.7301}
+      exchangeRate={cur.rate}
       key={cur.acronym}
       iconSrc={cur.picture}
       onChange={handleInputChange}
+      value={(Number(inputValue) * Number(cur.rate)).toFixed(2)} // если поле активно, то оно становится главным и в setInputValue должно уходить значение отсюда
     />
   ));
 
@@ -32,6 +38,7 @@ const InputList: FC = () => {
         iconSrc={firstCurrency.picture}
         inputClassName="w-full"
         onChange={handleInputChange}
+        value={inputValue}
       />
       {currencyCollection}
     </fieldset>
