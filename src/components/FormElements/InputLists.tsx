@@ -25,7 +25,10 @@ const InputList: FC = () => {
       key={cur.acronym}
       iconSrc={cur.picture}
       onChange={handleInputChange}
-      value={(Number(inputValue) * Number(cur.rate)).toFixed(2)} // если поле активно, то оно становится главным и в setInputValue должно уходить значение отсюда
+      value={(
+        (Number(inputValue) / Number(CURRENCIES[0].rate)) *
+        Number(cur.rate)
+      ).toFixed(2)} // если поле активно, то оно становится главным и в setInputValue должно уходить значение отсюда
     />
   ));
 
@@ -33,12 +36,12 @@ const InputList: FC = () => {
     <fieldset className="pt-1 w-fit">
       <InputItem
         label={firstCurrency.acronym}
-        exchangeRate={null}
+        exchangeRate={CURRENCIES[0].rate}
         key={firstCurrency.acronym}
         iconSrc={firstCurrency.picture}
         inputClassName="w-full"
         onChange={handleInputChange}
-        value={inputValue}
+        value={inputValue} // если поле не активно, и значения вводятся в другом поле, то оно должно быть равно введённое значение разделённое на exchangeRate активного поля
       />
       {currencyCollection}
     </fieldset>
