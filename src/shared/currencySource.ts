@@ -17,20 +17,23 @@ export const CURRENCIES: Currency[] = [
     country: "European Union",
     currencyName: "Euro",
     picture: eurIcon,
+    currencySymbol: "€",
   },
   {
     acronym: "USD",
-    rate: 0.1,
+    rate: 0.9,
     country: "United States of America",
     currencyName: "United States dollar",
     picture: usdIcon,
+    currencySymbol: "$",
   },
   {
     acronym: "PLN",
-    rate: 0.2,
+    rate: 4,
     country: "Poland",
     currencyName: "Polish złoty",
     picture: plnIcon,
+    currencySymbol: "zł",
   },
   {
     acronym: "CAD",
@@ -38,13 +41,15 @@ export const CURRENCIES: Currency[] = [
     country: "Canada",
     currencyName: "Canadian Dollar",
     picture: cadIcon,
+    currencySymbol: "C$",
   },
   {
     acronym: "BYN",
-    rate: 0.4,
+    rate: 3,
     country: "Belarus",
     currencyName: "Belarusian ruble",
     picture: bynIcon,
+    currencySymbol: "Br",
   },
   {
     acronym: "RUB",
@@ -52,6 +57,7 @@ export const CURRENCIES: Currency[] = [
     country: "Russia",
     currencyName: "Russian Ruble",
     picture: rubIcon,
+    currencySymbol: "₽",
   },
   {
     acronym: "UAH",
@@ -59,6 +65,7 @@ export const CURRENCIES: Currency[] = [
     country: "Ukraine",
     currencyName: "Ukrainian Hryvnia",
     picture: uahIcon,
+    currencySymbol: "₴",
   },
   {
     acronym: "CNY",
@@ -66,6 +73,7 @@ export const CURRENCIES: Currency[] = [
     country: "China",
     currencyName: "Chinese Yuan",
     picture: cnyIcon,
+    currencySymbol: "¥",
   },
   {
     acronym: "KZT",
@@ -73,6 +81,7 @@ export const CURRENCIES: Currency[] = [
     country: "Kazakhstan",
     currencyName: "Kazakhstani Tenge",
     picture: kztIcon,
+    currencySymbol: "₸",
   },
   {
     acronym: "AUD",
@@ -80,5 +89,6 @@ export const CURRENCIES: Currency[] = [
     country: "Australia",
     currencyName: "Australian Dollar",
     picture: "audIcon",
+    currencySymbol: "A$",
   },
 ];

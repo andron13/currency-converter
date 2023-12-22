@@ -1,14 +1,13 @@
-// InputLists.tsx
-
 import { ChangeEvent, FC } from "react";
 
 interface InputItemProps {
   label: string;
-  exchangeRate?: string | number | null;
-  iconSrc?: string;
+  exchangeRate: string | number | null;
+  iconSrc: string;
   inputId?: string;
   inputClassName?: string;
   value?: string;
+  currencySymbol?: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -17,7 +16,7 @@ const InputItem: FC<InputItemProps> = ({
   exchangeRate = null,
   iconSrc,
   inputClassName = "w-28",
-  value = "342423",
+  value = "1010",
   onChange,
 }) => {
   const inputId = label;
@@ -30,7 +29,7 @@ const InputItem: FC<InputItemProps> = ({
         </label>
       </div>
       <label htmlFor={inputId} className="text-red-600 font-bold">
-        {exchangeRate}
+        {exchangeRate != 1 && exchangeRate}
       </label>
       <input
         type="text"
