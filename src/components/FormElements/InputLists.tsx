@@ -15,12 +15,18 @@ const InputList: FC = () => {
   const [activeField, setActiveField] = useState<string | null>(
     CURRENCIES[0].acronym,
   );
+  const calculateInputValue = (
+    currencyRate: number,
+    isActive: boolean,
+  ): string => {
+    return isActive ? inputValue : (euroInputValue * currencyRate).toFixed(2);
+  };
 
   const handleInputChange = (
     event: ChangeEvent<HTMLInputElement>,
     acronym: string,
   ) => {
-    const currentCur = CURRENCIES.filter((item) => item.acronym === acronym)[0];
+    const currentCur = CURRENCIES.find((item) => item.acronym === acronym)!;
     const value = event.target.value;
     if (inputRegex.test(value)) {
       const output = value.replace(",", ".");
@@ -58,11 +64,7 @@ const InputList: FC = () => {
       key={cur.acronym}
       iconSrc={cur.picture}
       onChange={(event) => handleInputChange(event, cur.acronym)}
-      value={
-        activeField === cur.acronym
-          ? inputValue
-          : (Number(euroInputValue) * Number(cur.rate)).toFixed(2)
-      }
+      value={calculateInputValue(Number(cur.rate), activeField === cur.acronym)}
     />
   ));
 
