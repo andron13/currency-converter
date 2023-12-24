@@ -1,6 +1,6 @@
-import { FC, useState, ChangeEvent } from "react";
+import { FC, useState, ChangeEvent, useMemo } from "react";
 
-import { CURRENCIES } from "../../shared/currencySource";
+import { CURRENCIES, mainCurrencyAcronym } from "../../shared/currencySource";
 import { Currency } from "../../shared/types/types";
 
 import InputItem from "./InputItem";
@@ -8,12 +8,20 @@ import InputItem from "./InputItem";
 const inputRegex: RegExp = /^[0-9]*[.,]?[0-9]{0,2}$/;
 
 const InputList: FC = () => {
-  const firstCurrency = CURRENCIES[0];
+  const [mainCurrencyItem, otherCurrencies] = useMemo(() => {
+    const mainItem = CURRENCIES.find(
+      (item) => item.acronym === mainCurrencyAcronym,
+    );
+    const otherItems = CURRENCIES.filter(
+      (item) => item.acronym !== mainCurrencyAcronym,
+    );
+    return [mainItem ? mainItem : CURRENCIES[0], otherItems];
+  }, [CURRENCIES, mainCurrencyAcronym]);
 
   const [inputValue, setInputValue] = useState("100");
   const [euroInputValue, setEuroInputValue] = useState(Number(inputValue));
   const [activeField, setActiveField] = useState<string | null>(
-    firstCurrency.acronym,
+    mainCurrencyItem.acronym,
   );
 
   const calculateInputValue = (
@@ -43,10 +51,8 @@ const InputList: FC = () => {
 
   const renderInputItem = (currency: Currency) => (
     <InputItem
-      label={currency.acronym}
-      exchangeRate={currency.rate}
+      currency={currency}
       key={currency.acronym}
-      iconSrc={currency.picture}
       onChange={(event) => handleInputChange(event, currency.acronym)}
       value={calculateInputValue(
         currency.rate as number,
@@ -55,10 +61,11 @@ const InputList: FC = () => {
     />
   );
 
+  const currencyArray = [mainCurrencyItem].concat(otherCurrencies);
+
   return (
     <fieldset className="pt-1 w-fit">
-      {renderInputItem(firstCurrency)}
-      {CURRENCIES.slice(1, 9).map((cur) => renderInputItem(cur))}
+      {currencyArray.slice(0, 9).map((cur) => renderInputItem(cur))}
     </fieldset>
   );
 };

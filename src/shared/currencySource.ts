@@ -10,6 +10,7 @@ import usdIcon from "../assets/flags/usd.png";
 
 import { Currency } from "./types/types";
 
+export const mainCurrencyAcronym = "EUR";
 export const CURRENCIES: Currency[] = [
   {
     acronym: "EUR",
