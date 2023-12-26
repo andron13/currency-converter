@@ -1,6 +1,6 @@
 import { ChangeEvent, FC, useMemo } from "react";
 
-import { mainCurrencyAcronym } from "../../shared/currencySource";
+import { CURRENCIES, mainCurrencyAcronym } from "../../shared/currencySource";
 import { Currency } from "../../shared/types/types";
 
 interface InputItemProps {
@@ -10,9 +10,15 @@ interface InputItemProps {
 }
 
 const InputItem: FC<InputItemProps> = ({ currency, value, onChange }) => {
+  const mainItem = CURRENCIES.find(
+    (item) => item.acronym === mainCurrencyAcronym,
+  );
   const [curRate, mainCurrencyClass] = useMemo(() => {
     if (currency.acronym !== mainCurrencyAcronym) {
-      return [currency.rate, "w-28"];
+      return [
+        (Number(currency.rate) / Number(mainItem?.rate)).toFixed(2),
+        "w-28",
+      ];
     } else return [null, ""];
   }, [mainCurrencyAcronym, currency.rate, currency.acronym]);
 

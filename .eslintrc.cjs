@@ -9,7 +9,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react-hooks/recommended'
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs', 'vite.config.ts', 'prettier.config.js', '@typescript-eslint', 'node_modules', 'tailwind.config.js'],
+  ignorePatterns: ['dist', '.eslintrc.cjs', 'vite.config.ts', 'prettier.config.cjs', '@typescript-eslint', 'node_modules', 'tailwind.config.js'],
   plugins: ['@typescript-eslint', 'import', 'react', 'react-hooks', 'react-refresh', 'prettier'],
   parser: '@typescript-eslint/parser',
   parserOptions: {

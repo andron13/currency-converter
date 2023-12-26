@@ -1,5 +1,5 @@
 import bynIcon from "../assets/flags/byn.png";
-import cadIcon from "../assets/flags/cad.png"; //${acronym} => src={`src/assets/flags/${acronym.toLowerCase()}.png`}
+import cadIcon from "../assets/flags/cad.png";
 import cnyIcon from "../assets/flags/cny.png";
 import eurIcon from "../assets/flags/eur.png";
 import kztIcon from "../assets/flags/kzt.png";
@@ -10,7 +10,7 @@ import usdIcon from "../assets/flags/usd.png";
 
 import { Currency } from "./types/types";
 
-export const mainCurrencyAcronym = "EUR";
+export const mainCurrencyAcronym = "BYN";
 export const CURRENCIES: Currency[] = [
   {
     acronym: "EUR",
