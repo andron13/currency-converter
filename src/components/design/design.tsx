@@ -1,4 +1,3 @@
-
 interface PictureWithCaptionProps {
   src: string;
   alt: string;
@@ -16,4 +15,4 @@ function PictureWithCaption({ src, alt, caption }: PictureWithCaptionProps) {
   );
 }
 
-export default PictureWithCaption
+export default PictureWithCaption;

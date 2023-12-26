@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useState } from 'react';
 
 /**
  * Custom hook for managing the value of an input field. Supports strings only.

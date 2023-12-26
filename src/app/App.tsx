@@ -1,6 +1,6 @@
-import MainPage from "../components/MainPage";
-import ErrorBoundary from "../shared/ui/ErrorBoundary";
-import FallbackUi from "../shared/ui/FallbackUi";
+import MainPage from '../components/MainPage';
+import ErrorBoundary from '../shared/ui/ErrorBoundary';
+import FallbackUi from '../shared/ui/FallbackUi';
 
 function App() {
   return (

@@ -1,9 +1,12 @@
-import { FC, useState, ChangeEvent, useMemo } from "react";
+import { FC, useState, ChangeEvent, useMemo } from 'react';
 
-import { CURRENCIES, mainCurrencyAcronym } from "../../shared/currencySource";
-import { Currency } from "../../shared/types/types";
+import {
+  CURRENCIES,
+  mainCurrencyAcronym,
+} from '../../shared/mock/currencySource';
+import { Currency } from '../../shared/types/types';
 
-import InputItem from "./InputItem";
+import InputItem from './InputItem';
 
 const inputRegex: RegExp = /^[0-9]*[.,]?[0-9]{0,2}$/;
 
@@ -18,7 +21,7 @@ const InputList: FC = () => {
     return [mainItem ? mainItem : CURRENCIES[0], otherItems];
   }, [CURRENCIES, mainCurrencyAcronym]);
 
-  const [inputValue, setInputValue] = useState("100");
+  const [inputValue, setInputValue] = useState('100');
   const [euroInputValue, setEuroInputValue] = useState(Number(inputValue));
   const [activeField, setActiveField] = useState<string | null>(
     mainCurrencyItem.acronym,
@@ -38,11 +41,11 @@ const InputList: FC = () => {
     const currentCur = CURRENCIES.find((item) => item.acronym === acronym)!;
     const value = event.target.value;
     if (inputRegex.test(value)) {
-      const output = value.replace(",", ".");
+      const output = value.replace(',', '.');
       setInputValue(output);
     }
     setEuroInputValue(
-      acronym !== "EUR"
+      acronym !== 'EUR'
         ? Number(value) / Number(currentCur.rate)
         : Number(value),
     );

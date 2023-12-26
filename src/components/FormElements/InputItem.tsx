@@ -1,7 +1,10 @@
-import { ChangeEvent, FC, useMemo } from "react";
+import { ChangeEvent, FC, useMemo } from 'react';
 
-import { CURRENCIES, mainCurrencyAcronym } from "../../shared/currencySource";
-import { Currency } from "../../shared/types/types";
+import {
+  CURRENCIES,
+  mainCurrencyAcronym,
+} from '../../shared/mock/currencySource';
+import { Currency } from '../../shared/types/types';
 
 interface InputItemProps {
   currency: Currency;
@@ -17,9 +20,9 @@ const InputItem: FC<InputItemProps> = ({ currency, value, onChange }) => {
     if (currency.acronym !== mainCurrencyAcronym) {
       return [
         (Number(currency.rate) / Number(mainItem?.rate)).toFixed(2),
-        "w-28",
+        'w-28',
       ];
-    } else return [null, ""];
+    } else return [null, 'w-44'];
   }, [mainCurrencyAcronym, currency.rate, currency.acronym]);
 
   return (
@@ -34,14 +37,14 @@ const InputItem: FC<InputItemProps> = ({ currency, value, onChange }) => {
           />
         )}
         <label htmlFor={currency.acronym} className="font-bold">
-          {currency.acronym}:
+          <span>{currency.acronym}:</span>
         </label>
       </div>
       <label htmlFor={currency.acronym} className="text-red-600 font-bold">
         {curRate}
       </label>
       <input
-        type="text"
+        type="number"
         id={currency.acronym}
         className={`ml-auto rounded-md border-2 border-gray-300 p-1 ${mainCurrencyClass}`}
         value={value}

@@ -1,14 +1,14 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from 'react';
 
-import { CURRENCIES } from "../../shared/currencySource";
-import { Currency } from "../../shared/types/types";
-import fetchExchangeRate from "../services/fetchExchangeRate";
+import { CURRENCIES } from '../../shared/mock/currencySource';
+import { Currency } from '../../shared/types/types';
+import fetchExchangeRate from '../services/fetchExchangeRate';
 
 function LineConverter() {
   const [fromCur, setFromCur] = useState(CURRENCIES[0]);
   const [toCur, setToCur] = useState(CURRENCIES[1]);
-  const [amount, setAmount] = useState("1");
-  const [converted, setConverted] = useState<string>("");
+  const [amount, setAmount] = useState('1');
+  const [converted, setConverted] = useState<string>('');
   // console.log("fromCur", fromCur)
   // console.log("toCur", toCur)
   useEffect(() => {
@@ -19,7 +19,7 @@ function LineConverter() {
     } else {
       fetchExchangeRate(fromCur, toCur, amount, controller.signal).then(
         (result) => {
-          if (typeof result === "string") {
+          if (typeof result === 'string') {
             setConverted(result);
           }
         },
@@ -57,15 +57,13 @@ function LineConverter() {
         <select
           value={fromCur.acronym}
           onChange={handleChangeCurrency(setFromCur)}
-          className="border border-gray-300 rounded p-2 text-lg"
-        >
+          className="border border-gray-300 rounded p-2 text-lg">
           {currencyCollection}
         </select>
         <select
           value={toCur.acronym}
           onChange={handleChangeCurrency(setToCur)}
-          className="border border-gray-300 rounded p-2 text-lg"
-        >
+          className="border border-gray-300 rounded p-2 text-lg">
           {currencyCollection}
         </select>
       </form>

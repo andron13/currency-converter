@@ -1,6 +1,6 @@
-import { Component, ReactNode } from "react";
+import { Component, ReactNode } from 'react';
 
-import { IChildren } from "../types/interfaces.ts";
+import { IChildren } from '../types/interfaces';
 
 interface IErrorBoundaryState {
   hasError?: boolean;

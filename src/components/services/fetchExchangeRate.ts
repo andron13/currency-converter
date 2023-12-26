@@ -1,4 +1,4 @@
-import { Currency } from "../../shared/types/types";
+import { Currency } from '../../shared/types/types';
 
 function getErrorMessage(error: unknown) {
   if (error instanceof Error) return error.message;
@@ -7,7 +7,7 @@ function getErrorMessage(error: unknown) {
 
 function convertToEuropeanNumber(amount: string): string {
   const number = parseFloat(amount);
-  const userLanguage = navigator.language || "de-DE";
+  const userLanguage = navigator.language || 'de-DE';
   return number.toLocaleString(userLanguage, {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
@@ -29,7 +29,7 @@ async function fetchExchangeRate(
     );
     // console.log("res", res)
     if (!res.ok) {
-      return new Error("Network response was not ok");
+      return new Error('Network response was not ok');
     }
     const data = await res.json();
     // console.log("data", data)

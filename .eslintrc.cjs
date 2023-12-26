@@ -1,3 +1,4 @@
+// .eslintrc.cjs
 module.exports = {
   root: true,
   env: {
@@ -19,6 +20,16 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
+    'prettier/prettier': ['error', {
+      tabWidth: 2,
+      singleQuote: true,
+      arrowParens: 'always',
+      trailingComma: 'all',
+      endOfLine: 'auto',
+      bracketSpacing: true,
+      bracketSameLine: true,
+      editorconfig: true
+    }],
     "import/order": ["error", {
       "groups": ["builtin", "external", "parent", "sibling", "index"],
       "newlines-between": "always",

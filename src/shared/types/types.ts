@@ -1,8 +1,8 @@
 export type Currency = {
+  currencyName: string;
   acronym: string;
   rate: string | number;
   country: string;
-  currencyName: string;
   picture: string;
   currencySymbol: string;
 };
